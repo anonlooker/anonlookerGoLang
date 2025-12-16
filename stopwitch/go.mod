@@ -1,4 +1,4 @@
-module anonlookerGoLang/stopwitch
+module github.com/anonlooker/anonlookerGoLang/stopwitch
 
 go 1.25.5
 
