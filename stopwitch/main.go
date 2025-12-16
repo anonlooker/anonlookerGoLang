@@ -14,7 +14,7 @@ import (
 var running bool
 var startTime time.Time
 var elapsedTime time.Duration
-var ticker *time.Ticker // 声明一个全局或可访问的 Ticker
+var ticker *time.Ticker // declare a global or accessible Ticker
 var mu sync.Mutex
 
 // Format time function
@@ -33,15 +33,15 @@ func startStopwatch(label *widget.Label) {
 	mu.Lock()
 	if running {
 		mu.Unlock()
-		//加入一个弹窗提示已运行
+		// add a notification popup indicating it's running
 		fyne.CurrentApp().SendNotification(&fyne.Notification{
 			Title:   "Info",
 			Content: "Stopwatch is already running!",
 		})
-		return // 已经在运行
+		return // already running
 	}
 	running = true
-	startTime = time.Now() // 记录本次启动时间
+	startTime = time.Now() // record the start time
 	ticker = time.NewTicker(time.Millisecond * 10)
 	mu.Unlock()
 
